@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf ~/.config/GNotifier
+rm -rf ~/.local/share/GNotifier

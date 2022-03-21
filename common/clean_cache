@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ../src || exit
+
+rm -rf __pycache__
