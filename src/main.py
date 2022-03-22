@@ -68,7 +68,7 @@ class MainWindow(QMainWindow):
         # Propriedades gerais
         self.setWindowTitle(__pagename__)
         self.setWindowIcon(QIcon(setIcon()))
-        self.setMinimumSize(800, 600)
+        self.setMinimumSize(1024, 768)
 
         # Definições para a visualização da página do webapp
         self.view = Browser()
@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
     def bs(self, htm, parser):
         res = BeautifulSoup(htm, parser)
         try:
-            if not __err__ in res.title and res.findAll('div', {'class': '_26lC3'}):
+            if not __err__ in res.title and res.findAll('img', {'class': 'gb_wc'}):
                 verifyNotify(self, res)
             if __err__ in res.title:  # Em caso de erro de conexão o título inicial não se altera
                 if self.changeTray != 1:
@@ -352,7 +352,8 @@ class Browser(QWebEngineView):
         if not cap_url:  # Garantindo que a variável vai ter o link para abrir
             cap_url = self.save_url
 
-        if cap_url is not None and not 'mail.google.com' in cap_url:
+        if cap_url is not None and not 'mail.google.com' in cap_url and \
+                not 'https://www.google.com.br/intl/pt-BR/about/products' in cap_url:
             QDesktopServices.openUrl(QUrl(cap_url))  # Abrindo no navegador externo
         cap_url = None
 

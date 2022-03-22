@@ -30,8 +30,8 @@ def notifyMessage(self):
 # Essa função pode variar conforme o webapp.
 def verifyNotify(self, res):
     self.soma = 0
-    for tag in res.findAll('div', {'class': '_1pJ9J'}):
-        self.soma += int(tag.getText())
+    num = [int(temp) for temp in str(res.findAll('span', {'class': 'nU n1'})[0]).split() if temp.isdigit()]
+    self.soma = num[0]
     if self.soma != self.notify and self.soma != 0:
         self.notify = self.soma  # Necessário para mapear alterações no número de notificações
 
