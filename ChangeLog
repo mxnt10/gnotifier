@@ -3,9 +3,22 @@ All notable changes to this project will be documented in this file.
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 
-## [ 3.0 ] - 2022-03-20 #############################################
+## [ 3.0.1 ] - 2022-03-24 ###########################################
+
+### Changed / Modificado
+ - Changed error control.
+###
 
 ### Fixed / Corrigido
+ - Fixed notificaton function.
+###
+
+#####################################################################
+
+
+## [ 3.0 ] - 2022-03-20 #############################################
+
+### Added / Adicionado
  - Project development using version 3.0 of the webapp whats.
 ###
 

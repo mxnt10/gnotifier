@@ -4,10 +4,11 @@
 from os.path import realpath
 from subprocess import run
 
-# Modulos integrados (src)
-from PyQt5.QtCore import QUrl
+# Módulos do PyQt5
+from PyQt5.QtCore import QUrl, qDebug
 from PyQt5.QtMultimedia import QMediaContent
 
+# Modulos integrados (src)
 from jsonTools import set_json
 from utils import setIcon, setSound
 from version import __pagename__
@@ -30,7 +31,11 @@ def notifyMessage(self):
 # Essa função pode variar conforme o webapp.
 def verifyNotify(self, res):
     self.soma = 0
-    num = [int(temp) for temp in str(res.findAll('span', {'class': 'nU n1'})[0]).split() if temp.isdigit()]
+    try:
+        num = [int(temp) for temp in str(res.findAll('span', {'class': 'nU n1'})[0]).split() if temp.isdigit()]
+    except Exception as err:
+        qDebug('\033[31m[DEBUG]\033[33m: ' + str(err) + '.\033[m')
+        num = [0]
     self.soma = num[0]
     if self.soma != self.notify and self.soma != 0:
         self.notify = self.soma  # Necessário para mapear alterações no número de notificações
@@ -43,7 +48,7 @@ def verifyNotify(self, res):
                     self.notify_sound.play()
                 if set_json('NotifyMessage') and not self.sysLogin:
                     notifyMessage(self)
-            except Exception:
-                pass
+            except Exception as err:
+                qDebug('\033[31m[DEBUG]\033[33m: ' + str(err) + '.\033[m')
 
     self.sysLogin = False  # Redefinição após a primeira verificação
