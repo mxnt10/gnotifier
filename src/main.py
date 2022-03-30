@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
     def bs(self, htm, parser):
         res = BeautifulSoup(htm, parser)
         try:
-            if not __err__ in res.title and res.findAll('img', {'class': 'gb_wc'}):
+            if not __err__ in res.title and res.findAll('img', {'class': 'gb_zc'}):
                 verifyNotify(self, res)
             else:
                 self.soma = 0
