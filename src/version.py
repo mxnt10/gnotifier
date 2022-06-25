@@ -3,7 +3,7 @@ __appname__ = 'GNotifier'
 
 __pagename__ = __appname__ + ' - Gmail Notifier'
 
-__version__ = '3.0.3'
+__version__ = '3.0.4'
 
 __url__ = 'https://mail.google.com/'
 
